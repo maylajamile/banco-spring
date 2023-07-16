@@ -1,8 +1,8 @@
 package br.com.banco.modelo;
 
 import java.time.OffsetDateTime;
-import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -21,57 +21,59 @@ public class Transferencia {
 	private OffsetDateTime dataTransferencia;
 	private Double valor;
 	private String tipo;
-	private String opedador;
+	@Column(name = "nome_operador_transacao")
+	private String operador;
+
 	@ManyToOne
-	@JoinColumn(name = "conta_id")
-	private Conta idConta;
-	
+	@JoinColumn(name = "conta_id", referencedColumnName = "id_conta")
+	private Conta conta;
+
 	public Long getId() {
 		return id;
 	}
-	
+
 	public void setId(Long id) {
 		this.id = id;
 	}
-	
+
 	public OffsetDateTime getDataTransferencia() {
 		return dataTransferencia;
 	}
-	
+
 	public void setDataTransferencia(OffsetDateTime dataTransferencia) {
 		this.dataTransferencia = dataTransferencia;
 	}
-	
+
 	public Double getValor() {
 		return valor;
 	}
-	
+
 	public void setValor(Double valor) {
 		this.valor = valor;
 	}
-	
+
 	public String getTipo() {
 		return tipo;
 	}
-	
+
 	public void setTipo(String tipo) {
 		this.tipo = tipo;
 	}
-	
+
 	public String getOpedador() {
-		return opedador;
+		return operador;
 	}
-	
+
 	public void setOpedador(String opedador) {
-		this.opedador = opedador;
+		this.operador = opedador;
 	}
-	
+
 	public Conta getIdConta() {
-		return idConta;
+		return conta;
 	}
-	
-	public void setIdConta(Conta idConta) {
-		this.idConta = idConta;
+
+	public void setIdConta(Conta conta) {
+		this.conta = conta;
 	}
-	
+
 }

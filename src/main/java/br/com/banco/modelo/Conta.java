@@ -17,21 +17,21 @@ public class Conta {
 	private Long id;
 	@Column(name = "nome_responsavel")
 	private String responsavel;
-	
+
 	public Long getId() {
 		return id;
 	}
-	
+
 	public void setId(Long id) {
 		this.id = id;
 	}
-	
+
 	public String getResponsavel() {
 		return responsavel;
 	}
-	
+
 	public void setResponsavel(String responsavel) {
 		this.responsavel = responsavel;
 	}
-	
+
 }
