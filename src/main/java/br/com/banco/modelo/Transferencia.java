@@ -60,12 +60,12 @@ public class Transferencia {
 		this.tipo = tipo;
 	}
 
-	public String getOpedador() {
+	public String getOperador() {
 		return operador;
 	}
 
-	public void setOpedador(String opedador) {
-		this.operador = opedador;
+	public void setOperador(String operador) {
+		this.operador = operador;
 	}
 
 	public Conta getIdConta() {

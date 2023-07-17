@@ -26,11 +26,12 @@ public class ControladorTransferencia {
 			@RequestParam(value = "dataInicio", required = false) String dataInicio,
 			@RequestParam(value = "dataFinal", required = false) String dataFinal) {
 
-		if (dataInicio != null && dataFinal != null && operador != null) {
+		if (operador != null && !operador.isEmpty() && dataInicio != null && !dataInicio.isEmpty() 
+			&& dataFinal != null && !dataFinal.isEmpty()) {
 			return servico.buscarTransferencias(idConta, operador, dataInicio, dataFinal);
-		} else if (dataInicio != null && dataFinal != null) {
+		} else if (dataInicio != null && !dataInicio.isEmpty() && dataFinal != null && !dataFinal.isEmpty()) {
 			return servico.buscarTransferencias(idConta, operador, dataInicio, dataFinal);
-		} else if (operador != null) {
+		} else if (operador != null && !operador.isEmpty()) {
 			return servico.buscarTransferenciasPorOperador(idConta, operador);
 		} else {
 			return servico.buscarTransferenciasPorContaId(idConta);
