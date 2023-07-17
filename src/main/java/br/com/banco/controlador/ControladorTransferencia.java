@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -12,7 +13,7 @@ import br.com.banco.modelo.Transferencia;
 import br.com.banco.servico.TransferenciaServico;
 
 @RestController
-@RequestMapping("/transferencias")
+@RequestMapping("/transferencias/{idConta}")
 public class ControladorTransferencia {
 
 	@Autowired
@@ -20,7 +21,7 @@ public class ControladorTransferencia {
 	
 	@GetMapping
 	public List<Transferencia> listar(
-			@RequestParam(value = "idConta", required = true) Long idConta,
+			@PathVariable("idConta") Long idConta,
 			@RequestParam(value = "operador", required = false) String operador,
 			@RequestParam(value = "dataInicio", required = false) String dataInicio,
 			@RequestParam(value = "dataFinal", required = false) String dataFinal) {
